@@ -16,16 +16,22 @@ const itemsSchema = new mongoose.Schema({
 const Item = mongoose.model("Item", itemsSchema);
 
 const item1 = new Item({
-  name: "Welcome to your todoList!",
+  name: "Get Up You lazy Ass Do Something Productive Today(Tihardien👶)! ",
 });
 const item2 = new Item({
-  name: "Hit the + button to add a new item.",
+  name: "Hit the ➕ button to make a To Do List for Today's Work.",
 });
 const item3 = new Item({
-  name: "<-- Hit this to delete an item.",
+  name: "yha group ka sabhi sadsya apna daily routine banye aur Life mai aage badhe nhi toh aapko Netaji Nagar mai pappu ke Dhabe pe Sankeyy bete ke sath kaam pe laga diya jayega.(danyavad🙏)  "
+});
+const item4 = new Item({
+  name:"◻---  Hit this to delete an item.",
 });
 
-const defaultItems = [item1, item2, item3];
+const item11 = new Item({
+  name: "Kuch productive karle bhai kyu phone mai ghusa hua hai!!!",
+});
+const defaultItems = [item1, item2, item3, item4,item11];
 
 const listSchema ={
   name:String,
@@ -54,7 +60,7 @@ app.get("/", function (req, res) {
       Item.insertMany(defaultItems, function (err) {});
       res.redirect("/");
     } else {
-      res.render("list", { listTitle: "Today", newListItems: foundItems });
+      res.render("list", { listTitle: "Funkey Monkey's To Do List😎", newListItems: foundItems });
     }
   });
 });
@@ -95,7 +101,7 @@ app.post("/", function (req, res) {
     name: itemName
   });
 
-  if(listName === "Today"){
+  if(listName === "Funkey Monkey's To Do List😎"){
     item.save();
     res.redirect("/");
   }else{
@@ -112,7 +118,7 @@ app.post("/delete", function(req, res){
   const checkedItemId = req.body.checkbox;
   const listName = req.body.listname;
 
-  if(listName ==="Today"){
+  if(listName ==="Funkey Monkey's To Do List😎"){
     Item.findByIdAndRemove(checkedItemId,function(err){
       if (!err){
         // console.log("Successfully deleted");
