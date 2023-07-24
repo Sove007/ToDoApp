@@ -14,7 +14,6 @@ mongoose.connect(
   `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.wqkprsi.mongodb.net/?retryWrites=true&w=majority`
 );
 
-
 const itemsSchema = new mongoose.Schema({
   name: String,
 });
@@ -22,13 +21,10 @@ const itemsSchema = new mongoose.Schema({
 const Item = mongoose.model("Item", itemsSchema);
 
 const item1 = new Item({
-  name: "➕ to add",
-});
-const item2 = new Item({
-  name: "◻- to remove a Task",
+  name: "➕ to add  &  ◻ to remove",
 });
 
-const defaultItems = [item1, item2];
+const defaultItems = [item1];
 
 const listSchema = {
   name: String,
